@@ -1,0 +1,56 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[scripts]
+manage = "cd ./src && python manage.py"
+init = "pre-commit install --hook-type commit-msg"
+lint = "pre-commit run -a"
+fix = "black --line-length=130 --target-version=py38 --verbose ./src"
+tests = "coverage run --source='./src' -m pytest --suppress-no-test-exit-code"
+serve = "python ./src/manage.py runserver"
+
+[requires]
+python_version = "3.8.6"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
+psycopg2-binary = "*"
+requests = "*"
+
+[dev-packages]
+ipython = "*"
+django-debug-toolbar = "*"
+commitizen = "*"
+pre-commit = "*"
+black = "*"
+flake8 = "*"
+flake8-bandit = "*"
+flake8-broken-line = "*"
+flake8-bugbear = "*"
+flake8-builtins = "*"
+flake8-commas = "*"
+flake8-comprehensions = "*"
+flake8-debugger = "*"
+flake8-eradicate = "*"
+flake8-executable = "*"
+flake8-fixme = "*"
+flake8-pyi = "*"
+flake8-pytest = "*"
+flake8-pytest-style = "*"
+flake8-mutable = "*"
+flake8-string-format = "*"
+flake8-todo = "*"
+flake8-unused-arguments = "*"
+coverage = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-django = "*"
+pytest-custom-exit-code = "*"
+flake8-django = "*"
+
+[pipenv]
+allow_prereleases = true
